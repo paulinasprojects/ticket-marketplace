@@ -1,7 +1,9 @@
+import EventList from "@/components/events/event-list";
+
 export default function Home() {
   return (
-   <div>
-    Hello World
+   <div className="">
+    <EventList/>
    </div>
   );
 }
