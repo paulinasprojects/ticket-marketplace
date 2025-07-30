@@ -13,8 +13,12 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as constants from "../constants.js";
 import type * as events from "../events.js";
+import type * as storage from "../storage.js";
+import type * as tickets from "../tickets.js";
 import type * as users from "../users.js";
+import type * as waitinglist from "../waitinglist.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -25,8 +29,12 @@ import type * as users from "../users.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  constants: typeof constants;
   events: typeof events;
+  storage: typeof storage;
+  tickets: typeof tickets;
   users: typeof users;
+  waitinglist: typeof waitinglist;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
