@@ -10,7 +10,7 @@ export const WAITING_LIST_STATUS: Record<string, Doc<"waitingList">["status"]> =
     WAITING: "waiting",
     OFFERED: "offered",
     PURCHASED: "purchased",
-    Expired: "expired",
+    EXPIRED: "expired",
   } as const;
 
 export const TICKET_STATUS: Record<string, Doc<"tickets">["status"]> = {
@@ -19,3 +19,20 @@ export const TICKET_STATUS: Record<string, Doc<"tickets">["status"]> = {
   REFUNDED: "refunded",
   CANCELLED: "cancelled",
 } as const;
+
+export interface CheckAvailabilityResult {
+  available: boolean;
+  availableSpots: number;
+  totalTickets: number;
+  purchasedCount: number;
+  activeOffers: number;
+}
+
+type WaitingListStatus =
+  (typeof WAITING_LIST_STATUS)[keyof typeof WAITING_LIST_STATUS];
+
+export interface JoinWaitingListResult {
+  success: boolean;
+  status: WaitingListStatus;
+  message: string;
+}
